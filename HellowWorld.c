@@ -3,7 +3,7 @@
 
 int main()
 {
-printf("I like pizza");
+printf("Just trying something out ");
 return 0;
 
 }
