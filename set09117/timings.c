@@ -13,18 +13,30 @@ void code()
 int main()
 {
     clock_t start, end;
-    double cpu_time_used;
+    double cpu_time_used,average,elapsed;
+    int num_runs;
+    double total_time = 0.0;
+    
 
     printf("start: %d \n", (int) (start=clock()));
 
-    for(int j; j<5 ; j++)
+    printf("How many times to run the function: \n");
+    scanf("%d",&num_runs);
+
+    for(int j; j<num_runs ; j++)
     {
     code();
-    
     }
-    cpu_time_used = ((double) (end - start))/CLOCKS_PER_SEC;
+    
     printf("stop: %d \n", (int) (end=clock()-start));
-    printf("Elapsed: %f secpnds\n", (double) end / CLOCKS_PER_SEC);
+    printf("Elapsed: %f seconds\n", (double) (elapsed= end / CLOCKS_PER_SEC));
+
+    cpu_time_used = ((double) (end - start))/CLOCKS_PER_SEC;
+    total_time += cpu_time_used;
+
+    printf("Average: %f seconds \n",(double) (average= total_time/num_runs));
+    printf("Start time:\t  End time:\t  Elapsed time:\t  Average time:\t \n");
+    printf(" %d,\t\t  %d,\t\t  %f,\t\t %f",start,end,elapsed,average);
     
 
     return 0;
