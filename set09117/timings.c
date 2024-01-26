@@ -12,11 +12,19 @@ void code()
 
 int main()
 {
+    FILE *fp;
     clock_t start, end;
     double cpu_time_used,average,elapsed;
     int num_runs;
     double total_time = 0.0;
     
+    // Open file for writing
+    fp = fopen("output.csv", "w");
+    if(fp ==NULL){
+        printf("can not open file\n");
+        return 1;
+    }
+
 
     printf("start: %d \n", (int) (start=clock()));
 
@@ -36,8 +44,11 @@ int main()
 
     printf("Average: %f seconds \n",(double) (average= total_time/num_runs));
     printf("Start time:\t  End time:\t  Elapsed time:\t  Average time:\t \n");
-    printf(" %d,\t\t  %d,\t\t  %f,\t\t %f",start,end,elapsed,average);
+    printf(" %d,\t\t  %d,\t\t  %f,\t\t %f\n",start,end,elapsed,average);
     
+    // Write the formatted data to the file
+    fprintf(fp," %d,\t\t  %d,\t\t  %f,\t\t %f\n",start,end,elapsed,average);
 
+    fclose(fp);
     return 0;
 }
