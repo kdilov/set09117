@@ -44,7 +44,7 @@ int main()
 
     printf("Average: %f seconds \n",(double) (average= total_time/num_runs));
     printf("Start time:\t  End time:\t  Elapsed time:\t  Average time:\t \n");
-    printf(" %d,\t\t  %d,\t\t  %f,\t\t %f\n",start,end,elapsed,average);
+    printf(" %d\t\t  %d\t\t  %f\t\t %f\n",start,end,elapsed,average);
     
     // Write the formatted data to the file
     fprintf(fp," %d,\t\t  %d,\t\t  %f,\t\t %f\n",start,end,elapsed,average);
